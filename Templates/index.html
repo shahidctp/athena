@@ -1,0 +1,434 @@
+{% extends 'base.html' %}
+{% load static %}
+<html lang="en">
+<head>
+</head>
+
+<body>
+
+{% block content %}
+
+<!-- Carousel Start -->
+<div class="carousel">
+    <div class="container-fluid">
+        <div class="owl-carousel">
+            <div class="carousel-item">
+                <div class="carousel-img">
+                    <img src="{% static 'img/carousel-1.jpg' %}" alt="Image">
+                </div>
+                <div class="carousel-text">
+                    <h1>Best <span>Quality</span> Ingredients</h1>
+                    <p>
+                        Quality ingredients can have a true impact on the taste of food that is served at a restaurant.
+                        These ingredients are enhanced based on their freshness and the natural nature that the best
+                        ones bring to the table.
+                    </p>
+                    <div class="carousel-btn">
+                        <a class="btn custom-btn" href="{% url 'Menuapp:menu' %}">View Menu</a>
+                        <a class="btn custom-btn" href="{% url 'Orderapp:booking' %}">Book Table</a>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="carousel-img">
+                    <img src="{% static 'img/carousel-2.jpg' %}" alt="Image">
+                </div>
+                <div class="carousel-text">
+                    <h1>World’s <span>Best</span> Chef</h1>
+                    <p>
+                        A chef oversees a restaurants kitchen. A chef plans the menu, maintains the budget, prices menu
+                        items, prepares food, purchases supplies, ensures quality of service, ensures safety, and
+                        manages staff. There is a lot of work that goes into becoming a chef.
+                    </p>
+                    <div class="carousel-btn">
+                        <a class="btn custom-btn" href="{% url 'Menuapp:menu' %}">View Menu</a>
+                        <a class="btn custom-btn" href="{% url 'Orderapp:booking' %}">Book Table</a>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="carousel-img">
+                    <img src="{% static 'img/carousel-3.jpg' %}" alt="Image">
+                </div>
+                <div class="carousel-text">
+                    <h1>Fastest Order <span>Delivery</span></h1>
+                    <p>
+                        Food delivery is a courier service in which a restaurant, store, or independent food
+                        delivery company delivers food to a customer. ... The delivered items can include entrees,
+                        sides, drinks, desserts, or grocery items and are typically delivered in boxes or bags.
+                    </p>
+                    <div class="carousel-btn">
+                        <a class="btn custom-btn" href="{% url 'Menuapp:menu' %}">View Menu</a>
+                        <a class="btn custom-btn" href="{% url 'Orderapp:booking' %}">Book Table</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Carousel End -->
+
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li {% if message.tags %} class="{{ message.tags }}" style="padding:70px" {% endif %}>
+        {{ message }}
+    </li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+<!-- About Start -->
+<div class="about">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="about-img">
+                    <img src="{% static 'img/about.jpg' %}" alt="Image">
+                    <button type="button" class="btn-play" data-toggle="modal"
+                            data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-target="#videoModal">
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="about-content">
+                    <div class="section-header">
+                        <p>About Us</p>
+                        <h2>Cooking Since 1990</h2>
+                    </div>
+                    <div class="about-text">
+                        <p>
+                            Burger King was founded in 1953 in Jacksonville, Florida, as Insta-Burger King by Keith J.
+                            Kramer and his wife's uncle, Matthew Burns. Their first stores were centred around a piece
+                            of equipment known as the Insta-Broiler, which was very effective at cooking burgers. It
+                            proved so successful that, as they grew through franchising, they required all of their
+                            franchises to carry the device.
+                        </p>
+                        <p>
+                            While the Jacksonville chain kept expanding, two friends named James McLamore and David R.
+                            Edgerton, both alumni of the Cornell University School of Hotel Administration, were seeking
+                            an opportunity to open their own business. McLamore had visited the original hamburger stand
+                            belonging to Dick and Mac McDonald in San Bernardino, California, and sensing potential in
+                            their innovative assembly line-based production system, decided to open a similar
+                            operation.
+                        </p>
+                        <a class="btn custom-btn" href="{% url 'Orderapp:booking' %}">Book A Table</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- About End -->
+
+
+<!-- Video Modal Start-->
+<div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <!-- 16:9 aspect ratio -->
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="" id="video" allowscriptaccess="always"
+                            allow="autoplay"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Video Modal End -->
+
+
+<!-- Feature Start -->
+<div class="feature">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5">
+                <div class="section-header">
+                    <p>Why Choose Us</p>
+                    <h2>Our Key Features</h2>
+                </div>
+                <div class="feature-text">
+                    <div class="feature-img">
+                        <div class="row">
+                            <div class="col-6">
+                                <img src="{% static 'img/feature-1.jpg' %}" alt="Image">
+                            </div>
+                            <div class="col-6">
+                                <img src="{% static 'img/feature-2.jpg' %}" alt="Image">
+                            </div>
+                            <div class="col-6">
+                                <img src="{% static 'img/feature-3.jpg' %}" alt="Image">
+                            </div>
+                            <div class="col-6">
+                                <img src="{% static 'img/feature-4.jpg' %}" alt="Image">
+                            </div>
+                        </div>
+                    </div>
+                    <p>
+                        What is the best thing to eat at Burger King? New Burger King items, like the Sourdough King and
+                        the Rodeo King, are two of the most popular things on their menu. Other good Burger King foods
+                        include the Original Chicken Sandwich, the Crispy Chicken Sandwich, and spicy chicken
+                        nuggets.
+                    </p>
+                    <a class="btn custom-btn" href="{% url 'Orderapp:booking' %}">Book A Table</a>
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="feature-item">
+                            <i class="flaticon-cooking"></i>
+                            <h3>World’s best Chef</h3>
+                            <p>
+                                A chef oversees a restaurants kitchen. A chef plans the menu, maintains the budget,
+                                prices menu items, prepares food, etc.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="feature-item">
+                            <i class="flaticon-vegetable"></i>
+                            <h3>Natural ingredients</h3>
+                            <p>
+                                The chain is promoting its real food with celebrity-based 'Keep it Real' meals. </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="feature-item">
+                            <i class="flaticon-medal"></i>
+                            <h3>Best quality products</h3>
+                            <p>
+                                Quality ingredients can have a true impact on the taste of food that is served at a
+                                restaurant.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="feature-item">
+                            <i class="flaticon-meat"></i>
+                            <h3>Fresh vegetables & Meet</h3>
+                            <p>
+                                Our beef patties are made with 100% beef with no fillers, no preservatives, no
+                                additives, no nonsense. We also provide fresh vegitable products. </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="feature-item">
+                            <i class="flaticon-courier"></i>
+                            <h3>Fastest door delivery</h3>
+                            <p>
+                                Food delivery is a courier service in which a restaurant, store, or independent food
+                                delivery company delivers food to a customer.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="feature-item">
+                            <i class="flaticon-fruits-and-vegetables"></i>
+                            <h3>Ground beef & Low fat</h3>
+                            <p>
+                                We also make our flagship product, the WHOPPER® Sandwich, with 1/4 lb* of savory
+                                flame-grilled beef. Now that's a beefy sandwich.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Feature End -->
+
+
+<!-- Food Start -->
+<div class="food">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-4">
+                <div class="food-item">
+                    <i class="flaticon-burger"></i>
+                    <h2>Burgers</h2>
+                    <p>
+                        A hamburger (or burger for short) is a food, typically considered a sandwich, consisting of one
+                        or more cooked patties—usually ground meat, typically beef—placed inside a sliced bread roll or
+                        bun.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="food-item">
+                    <i class="flaticon-snack"></i>
+                    <h2>Snacks</h2>
+                    <p>
+                        Snacks come in a variety of forms including packaged snack foods and other processed foods, as
+                        well as items made from fresh ingredients at home.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="food-item">
+                    <i class="flaticon-cocktail"></i>
+                    <h2>Beverages</h2>
+                    <p>
+                        A liquid to consume, usually excluding water; a drink. This may include tea, coffee, liquor,
+                        beer, milk, juice, or soft drinks.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Food End -->
+
+
+<!-- Menu Start -->
+
+<div class="menu">
+    <div class="container">
+        <div class="section-header text-center">
+            <p>Food Menu</p>
+            <h2>Delicious Food Menu</h2>
+        </div>
+        <div class="menu-tab">
+            <ul class="nav nav-pills justify-content-center">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="pill" href="#burgers">Burgers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="pill" href="#snacks">Snacks</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="pill" href="#beverages">Beverages</a>
+                </li>
+            </ul>
+            <div class="tab-content">
+
+                <div id="burgers" class="container tab-pane active">
+                    <div class="row">
+                        <div class="col-lg-7 col-md-12">
+
+                            {% for i in obj1 %}
+                            <div class="menu-item">
+                                <div class="menu-img">
+                                    <img src="{{ i.image.url }}" alt="Image">
+                                </div>
+                                <div class="menu-text">
+                                    <h3><span>{{i.item_name}}</span> <strong>${{i.price}}</strong></h3>
+                                    <p>{{i.description}}</p>
+                                </div>
+                            </div>
+                            {% endfor %}
+
+                        </div>
+                        <div class="col-lg-5 d-none d-lg-block">
+                            <img src="{% static 'img/menu-burger-img.jpg' %}" alt="Image">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div id="snacks" class="container tab-pane fade">
+                    <div class="row">
+                        <div class="col-lg-7 col-md-12">
+
+                            {% for j in obj2 %}
+                            <div class="menu-item">
+                                <div class="menu-img">
+                                    <img src="{{ j.image.url }}" alt="Image">
+                                </div>
+                                <div class="menu-text">
+                                    <h3><span>{{j.item_name}}</span> <strong>${{j.price}}</strong></h3>
+                                    <p>{{j.description}}</p>
+                                </div>
+                            </div>
+                            {% endfor %}
+
+                        </div>
+                        <div class="col-lg-5 d-none d-lg-block">
+                            <img src="{% static 'img/menu-snack-img.jpg' %}" alt="Image">
+                        </div>
+                    </div>
+                </div>
+                <div id="beverages" class="container tab-pane fade">
+                    <div class="row">
+                        <div class="col-lg-7 col-md-12">
+
+                            {% for k in obj3 %}
+                            <div class="menu-item">
+                                <div class="menu-img">
+                                    <img src="{{ k.image.url }}" alt="Image">
+                                </div>
+                                <div class="menu-text">
+                                    <h3><span>{{k.item_name}}</span> <strong>${{k.price}}</strong></h3>
+                                    <p>{{k.description}}</p>
+                                </div>
+                            </div>
+                            {% endfor %}
+
+                        </div>
+                        <div class="col-lg-5 d-none d-lg-block">
+                            <img src="{% static 'img/menu-beverage-img.jpg' %}" alt="Image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Menu End -->
+
+
+<!-- Team Start -->
+
+<div class="team">
+    <div class="container">
+        <div class="section-header text-center">
+            <p>Our Team</p>
+            <h2>Our Master Chef</h2>
+        </div>
+        <div class="row">
+
+            {% for chef in obj5 %}
+            <div class="col-lg-3 col-md-6">
+                <div class="team-item">
+                    <div class="team-img">
+                        <img src="{{ chef.image.url }}" alt="Image">
+                        <div class="team-social">
+                            <a href=""><i class="fab fa-twitter"></i></a>
+                            <a href=""><i class="fab fa-facebook-f"></i></a>
+                            <a href=""><i class="fab fa-linkedin-in"></i></a>
+                            <a href=""><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="team-text">
+                        <h2>{{chef.name}}</h2>
+                        <p>{{chef.role}}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
+
+<!-- Team End -->
+
+<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+{% endblock content %}
+
+
+</body>
+</html>

@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<html lang="en">
+<head>
+</head>
+
+<body>
+<!-- Nav Bar Start -->
+<!-- Nav Bar End -->
+{% block content %}
+
+
+<!-- Page Header Start -->
+<div class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2>Food Blog</h2>
+            </div>
+            <div class="col-12">
+                <a href="">Home</a>
+                <a href="">Blog</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Page Header End -->
+
+
+<!-- Blog Start -->
+<div class="blog">
+    <div class="container">
+        <div class="section-header text-center">
+
+            {% if user.is_authenticated %}
+            <div class="section-header text-center">
+                <a class="btn custom-btn" href="{% url 'Blog_app:blog_post' %}">POST A BLOG HERE</a>
+            </div>
+            <div class="section-header text-center">
+                <a class="btn custom-btn" href="{% url 'Blog_app:personal_blog' %}">MY BLOGS</a>
+            </div>
+            {% else %}
+            {% endif %}
+
+            <p>Food Blog</p>
+            <h2>Latest From Food Blog</h2>
+        </div>
+
+        <div class="row">
+            {% for i in obj %}
+            <div class="col-md-6">
+                <div class="blog-item">
+                    <div class="blog-img">
+                        <img src="{{ i.image.url }}" style="height:50%" alt="Blog">
+                    </div>
+                    <div class="blog-content">
+                        <h2 class="blog-title">{{ i.title }}</h2>
+                        <div class="blog-meta">
+                            <p><i class="far fa-user"></i>{{ i.author_name }}</p>
+                            <p><i class="far fa-list-alt"></i>{{ i.category}}</p>
+                            <p><i class="far fa-calendar-alt"></i>{{ i.date }}</p>
+                            <p><i class="far fa-comments"></i>{{ i.commented_in.all.count }}</p>
+                        </div>
+                        <div class="blog-text">
+                            <a class="btn custom-btn" href="{% url 'Blog_app:blog_details' i.id %}">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<div class="blog">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item active"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Blog End -->
+
+
+<!-- Footer Start -->
+<!-- Footer End -->
+
+<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+{% endblock content %}
+
+
+</body>
+</html>

@@ -1,0 +1,172 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<html lang="en">
+<head>
+</head>
+
+<body>
+
+{% block content %}
+
+
+<!-- Page Header Start -->
+<div class="page-header mb-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2>Food Menu</h2>
+            </div>
+            <div class="col-12">
+                <a href="">Home</a>
+                <a href="">Menu</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Page Header End -->
+
+
+<!-- Food Start -->
+<div class="food mt-0">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-4">
+                <div class="food-item">
+                    <i class="flaticon-burger"></i>
+                    <h2>Burgers</h2>
+                    <p>
+                        A hamburger (or burger for short) is a food, typically considered a sandwich, consisting of one
+                        or more cooked patties—usually ground meat, typically beef—placed inside a sliced bread roll or
+                        bun.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="food-item">
+                    <i class="flaticon-snack"></i>
+                    <h2>Snacks</h2>
+                    <p>
+                        Snacks come in a variety of forms including packaged snack foods and other processed foods, as
+                        well as items made from fresh ingredients at home.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="food-item">
+                    <i class="flaticon-cocktail"></i>
+                    <h2>Beverages</h2>
+                    <p>
+                        A liquid to consume, usually excluding water; a drink. This may include tea, coffee, liquor,
+                        beer, milk, juice, or soft drinks.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Food End -->
+
+
+<!-- Menu Start -->
+<div class="menu">
+    <div class="container">
+        <div class="section-header text-center">
+            <p>Food Menu</p>
+            <h2>Delicious Food Menu</h2>
+        </div>
+        <div class="menu-tab">
+            <ul class="nav nav-pills justify-content-center">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="pill" href="#burgers">Burgers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="pill" href="#snacks">Snacks</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="pill" href="#beverages">Beverages</a>
+                </li>
+            </ul>
+            <div class="tab-content">
+
+                <div id="burgers" class="container tab-pane active">
+                    <div class="row">
+                        <div class="col-lg-7 col-md-12">
+
+                            {% for i in obj1 %}
+                            <div class="menu-item">
+                                <div class="menu-img">
+                                    <img src="{{ i.image.url }}" alt="Image">
+                                </div>
+                                <div class="menu-text">
+                                    <h3><span>{{i.item_name}}</span> <strong>${{i.price}}</strong></h3>
+                                    <p>{{i.description}}</p>
+                                </div>
+                            </div>
+                            {% endfor %}
+
+                        </div>
+                        <div class="col-lg-5 d-none d-lg-block">
+                            <img src="{% static 'img/menu-burger-img.jpg' %}" alt="Image">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div id="snacks" class="container tab-pane fade">
+                    <div class="row">
+                        <div class="col-lg-7 col-md-12">
+
+                            {% for j in obj2 %}
+                            <div class="menu-item">
+                                <div class="menu-img">
+                                    <img src="{{ j.image.url }}" alt="Image">
+                                </div>
+                                <div class="menu-text">
+                                    <h3><span>{{j.item_name}}</span> <strong>${{j.price}}</strong></h3>
+                                    <p>{{j.description}}</p>
+                                </div>
+                            </div>
+                            {% endfor %}
+
+                        </div>
+                        <div class="col-lg-5 d-none d-lg-block">
+                            <img src="{% static 'img/menu-snack-img.jpg' %}" alt="Image">
+                        </div>
+                    </div>
+                </div>
+                <div id="beverages" class="container tab-pane fade">
+                    <div class="row">
+                        <div class="col-lg-7 col-md-12">
+
+                            {% for k in obj3 %}
+                            <div class="menu-item">
+                                <div class="menu-img">
+                                    <img src="{{ k.image.url }}" alt="Image">
+                                </div>
+                                <div class="menu-text">
+                                    <h3><span>{{k.item_name}}</span> <strong>${{k.price}}</strong></h3>
+                                    <p>{{k.description}}</p>
+                                </div>
+                            </div>
+                            {% endfor %}
+
+                        </div>
+                        <div class="col-lg-5 d-none d-lg-block">
+                            <img src="{% static 'img/menu-beverage-img.jpg' %}" alt="Image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Menu End -->
+
+
+<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+{% endblock content %}
+
+</body>
+</html>

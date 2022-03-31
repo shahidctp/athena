@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<html lang="en">
+<head>
+<link href="{% static 'css/tabledetails.css' %}" rel="stylesheet">
+</head>
+<body>
+
+{% block content %}
+
+<div class="page-header mb-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2>Bookings</h2>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<body class="hm-gradient">
+
+<main>
+
+
+    <!--MDB Tables-->
+
+    <form action="{% url 'Orderapp:table_details' %}" method="POST">
+        {% csrf_token %}
+
+        <div class="container mt-4">
+
+
+            <div class="card mb-4">
+                <div class="card-body">
+
+                    <!-- Grid row -->
+                    <div class="row">
+                        <!-- Grid column -->
+                        <div class="col-md-12">
+                            <h2 class="pt-3 pb-4 text-center font-bold font-up deep-purple-text">Booking Details</h2>
+                        </div>
+                        <!-- Grid column -->
+                    </div>
+                    <!-- Grid row -->
+                    <br>
+                    <div class="input-group date" id="date" data-target-input="nearest">
+                        <div>
+                            <input type="date" name="date" placeholder="Date"
+                                   data-target="#date">
+                        </div>
+                        <div>
+                            <button type="submit">Submit</button>
+                        </div>
+
+                    </div>
+
+
+                    <br>
+                    <!--Table-->
+                    <table class="table table-striped">
+                        <!--Table head-->
+                        <thead>
+                        <tr>
+                            <th>Table No</th>
+                            <th>Customer Name</th>
+                            <th>Mobile Number</th>
+                            <th>Email</th>
+                            <!--                        <th>Booking status</th>-->
+                            <th></th>
+
+                        </tr>
+                        </thead>
+                        <!--Table head-->
+
+                        <!--Table body-->
+
+                        <tbody>
+                        {% for g in obj11 %}
+                        <tr>
+                            <th>Table {{forloop.counter}}</th>
+                            <td scope="row">{{g.name}}</td>
+                            <td>{{g.mobile_number}}</td>
+                            <td>{{g.email}}</td>
+                            <!--                        <td>@mdo</td>-->
+                            <td>
+                                <a href="{% url 'Orderapp:delete' g.id %}">
+                                    <button type="button" class="btn btn-warning">Delete</button>
+                                </a>
+                            </td>
+
+
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+
+                        <!--Table body-->
+                    </table>
+                    <!--Table-->
+                </div>
+            </div>
+
+            <hr class="my-4">
+
+
+        </div>
+    </form>
+    <!--MDB Tables-->
+
+</main>
+
+</body>
+
+{% endblock content %}
+
+</body>
+</html>

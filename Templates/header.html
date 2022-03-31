@@ -1,0 +1,38 @@
+<div class="navbar navbar-expand-lg bg-light navbar-light">
+    <div class="container-fluid">
+        <a href="{% url 'Customerapp:home' %}" class="navbar-brand"><span>Burger King</span></a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+            <div class="navbar-nav ml-auto">
+                <a href="{% url 'Customerapp:home' %}" class="nav-item nav-link">Home</a>
+                <a href="{% url 'Customerapp:about' %}" class="nav-item nav-link">About</a>
+                <a href="{% url 'Customerapp:feature' %}" class="nav-item nav-link">Feature</a>
+                <a href="{% url 'Customerapp:team' %}" class="nav-item nav-link">Chef</a>
+                <a href="{% url 'Menuapp:menu' %}" class="nav-item nav-link">Menu</a>
+                <a href="{% url 'Orderapp:booking' %}" class="nav-item nav-link">Booking</a>
+                <a href="{% url 'Blog_app:blog_grid' %}" class="nav-item nav-link">Blog</a>
+                <a href="{% url 'Customerapp:contact' %}" class="nav-item nav-link">Contact</a>
+            </div>
+
+            {% if user.is_authenticated %}
+            <div>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">{{user.username}}</a>
+                    <div class="dropdown-menu">
+                        <a href="{% url 'Customerapp:logout_request' %}" class="dropdown-item"
+                           style="text-align: center"><b>Logout</b></a>
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <button type="button" style="border: none;background-color:#fbaf32;border-radius: 4px">
+                <a href="{% url 'Customerapp:login_request' %}" style="color: white">Login</a>
+            </button>
+            {% endif %}
+
+        </div>
+    </div>
+</div>

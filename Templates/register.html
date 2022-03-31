@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<html lang="en">
+<head>
+</head>
+<body>
+{% block content %}
+<div class="page-header mb-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2>Sign_up</h2>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="frame">
+
+        <div ng-app ng-init="checked = false">
+
+
+            <form class="form-signin" action="{% url 'Customerapp:cus_signup' %}" method="POST" name="form">
+                {% csrf_token %}
+                <div>
+                    <h1 style="padding-right:15px;padding-bottom:15px"><b>SIGNUP</b></h1>
+                </div>
+                <div>
+                    <label for="username">user name</label>
+                    <input class="form-styling" type="text" name="username" id="username" placeholder="username"/>
+
+                    <label for="email">Email</label>
+                    <input class="form-styling" type="text" name="email" id="email" placeholder="email"/>
+                    <label for="password">Password</label>
+                    <input class="form-styling" type="password" id="password" name="password" placeholder="password"/>
+                    <label for="confirm_password">Confirm password</label>
+                    <input class="form-styling" type="password" name="confirm_password" id="confirm_password"
+                           placeholder="confirm password"/>
+                </div>
+                <br>
+                <div>
+                    <button style="float: left;width: 100%;height: 35px;border: none;border-radius: 20px;
+                    margin-top: -8px;background-color: #1059ff;color:white"><b>Sign up</b>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+
+</body>
+</html>
